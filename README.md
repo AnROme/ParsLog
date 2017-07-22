@@ -3,9 +3,13 @@ The task called "Logs parsing".
 
 Input will consist of log-file, the file name set in command line.
 The log is a text file includes in some lines URLs.
+
 URL is a substring surely consisting of a prefix and the domain and perhaps additional path.
+
 Prefix is one of "http://" or "https://".
+
 Domain is any character set "a-z A-Z 0-9 . -" (Latin chars, digits, point, dash).
+
 Path is always start from "/" and can consist from "a-z A-Z 0-9 . , / + _"(Latin chars, digits and five special characters).
 In case absence empty path replaced on "/" path. That's why "http://google.com/" has domain "google.com" plus path "/". And "http://...oh" has domain "...oh" and empty path is replaced on "/". These are a little simplified rules.
 
@@ -15,6 +19,7 @@ In case of the same frequency domains and paths sorted in a lexicographic order 
 Pay attention, a path "/" as a part of 4 different URL from 4 different domains these are 4 mentions.
 
 N can be set by an optional key in the command line "-n".
+
 	mytest [-n NNN] in.txt out.txt
 
 Thus the format of the files have to be strictly such, as in the example.
