@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <unordered_map>
 #include <map>
 #include<functional>
 
@@ -28,17 +27,17 @@ int parsLog(string fileName, statAppear &domains, statAppear &paths){
         unsigned int countUrls = 0;
         for (string str; getline(reader, str);) {
 
-                sregex_iterator It, curIt;
+                sregex_iterator URL_Iter;
 
                 /**** all detected URLs in read string *****/
-                It = curIt = sregex_iterator(str.begin(), str.end(), refer);
+                URL_Iter = sregex_iterator(str.begin(), str.end(), refer);
                 sregex_iterator endIter;
 
                 smatch match;
 
-                while(It != endIter) {
+                while(URL_Iter != endIter) {
                         ++countUrls;
-                        match = *It++;
+                        match = *URL_Iter++;
 
                         domainName = match[2];
                         auto iter = domains.find(domainName);
